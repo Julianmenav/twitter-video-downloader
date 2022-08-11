@@ -10,24 +10,40 @@ const port = process.env.PORT || 3000
 app.use(express.urlencoded({ extended: false }))
 
 
-app.get("/", (req, res) => {
-  res.send("HTML")
-})
+app.get('/', function (req, res) {
+  res.sendFile(process.cwd() + '/views/index.html');
+});
 
 
-app.get("/api/:tweetId", (req, res) => {
-  const { tweetId } = req.params
+app.post("/api/url", (req, res) => {
+  const { url } = req.body
+  try {
+    const splittedUrl = url.split("/")
+    let tweetId
 
-  getTweet(tweetId).then(data => {
-
-    if (data) {
-      const best = getBestVideo(data)
-      res.json({ "Link al vídeo": best.url })
+    if (splittedUrl[splittedUrl.length - 1] == "") {
+      tweetId = splittedUrl[splittedUrl.length - 2]
     } else {
-      //Cuando hay un error procesando el tweet.
-      res.json({ "Error": "Link inválido" })
+      tweetId = splittedUrl[splittedUrl.length - 1]
     }
-  })
+
+    getTweet(tweetId).then(data => {
+      if (data) {
+        const best = getBestVideo(data)
+        res.json({ "Link al vídeo": best.url })
+        // res.redirect(best.url)
+      } else {
+        //ERROR1
+        res.json({ "Error": `La URL '${url}' no es de un tweet válido, o no contiene un vídeo` })
+      }
+    })
+
+  } catch (error) {
+    console.log(error)
+    //ERROR2
+    res.json({ "Error": "No se ha introducido un Link válido, inténtelo más tarde" })
+  }
+
 })
 
 //Not Found Middleware
