@@ -8,9 +8,9 @@ const getTweet = async (strId) => {
     .catch(e => {
       console.error(e.response.data)
     })
-  const url = tweetResponse.data[0].extended_entities.media[0].video_info.variants[0].url
+  const variantsObj = tweetResponse.data[0].extended_entities.media[0].video_info.variants
 
-  return url
+  return variantsObj
 }
 
 
