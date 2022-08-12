@@ -3,6 +3,7 @@
 - [X] Error Handling. API error. URL error.
 - [X] Static HTML form en el cual introducir Link al tweet, y se encargue de extraer el ID del video para hacer la request al server. 
 - [] Crear una app sencilla con un HTML en el que introducir dicho link.
+- [] Redirect Button
 - [] Subirlo a railway o github pages.
 
 
