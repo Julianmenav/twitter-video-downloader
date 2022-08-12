@@ -5,5 +5,6 @@
 - [X] Crear una app sencilla con un HTML en el que introducir dicho link.
 - [X] Subirlo a railway o github pages.
 - [ ] Respuesta con Link clickable / Boton redirect.
+- [ ] Mejorar algoritmo de obtención del tweet ID
 
 
