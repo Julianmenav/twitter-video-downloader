@@ -11,6 +11,6 @@ Pruebalo: [Pulse aqui](https://video-downloader-app-production.up.railway.app/)
 - [X] Crear una app sencilla con un HTML en el que introducir dicho link.
 - [X] Subirlo a railway o github pages.
 - [ ] Respuesta con Link clickable / Boton redirect.
-- [ ] Mejorar algoritmo de obtención del tweet ID
+- [X] Mejorar algoritmo de obtención del tweet ID
 
 

@@ -6,13 +6,15 @@ const getLink = async (req, res) => {
     const { url } = req.body
     //Get tweet ID
     const splittedUrl = url.split("/")
-    let tweetId
+    let lastStr
   
     if (splittedUrl[splittedUrl.length - 1] == "") {
-      tweetId = splittedUrl[splittedUrl.length - 2]
+      lastStr = splittedUrl[splittedUrl.length - 2]
     } else {
-      tweetId = splittedUrl[splittedUrl.length - 1]
+      lastStr = splittedUrl[splittedUrl.length - 1]
     }
+
+    const tweetId = lastStr.split("?")[0]
   
     //API CALL
     tweetResponse = await getTweet(tweetId)
