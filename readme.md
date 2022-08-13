@@ -1,3 +1,9 @@
+## Uso
+Introduce un tweet que contenga un video y se te redireccionará al video para que puedas descargarlo o enviarlo sin necesidad de pasar por la red social.
+
+Pruebalo: [Pulse aqui](https://video-downloader-app-production.up.railway.app/)
+
+## CheckList
 - [X] Conversor de link a tweet -> link a video donde puedes descargarlo. POR CONSOLA.
 - [X] Convertir la lógica en un servidor con express. GET con el código del vídeo (Params o Body) -> res.redirect(videoUrl)
 - [X] Error Handling. API error. URL error.
