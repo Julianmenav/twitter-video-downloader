@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const favicon = require('serve-favicon')
-const { getLink } = require('./middleware/middleware')
+const { getLink } = require('./controllers/link')
 
 const app = express();
 
