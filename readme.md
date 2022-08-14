@@ -1,7 +1,7 @@
 ## Uso
 Introduce un tweet que contenga un video y se te redireccionará al video para que puedas descargarlo o enviarlo sin necesidad de pasar por la red social.
 
-Pruebalo: [Pulse aqui](https://video-downloader-app-production.up.railway.app/)
+Pruebalo: [Pulse aqui](https://julian-video-downloader.up.railway.app/)
 
 ## CheckList
 - [X] Conversor de link a tweet -> link a video donde puedes descargarlo. POR CONSOLA.
