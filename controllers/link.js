@@ -29,7 +29,7 @@ const getLink = async (req, res) => {
     }
     const variantsObj = tweetResponse.extended_entities.media[0].video_info.variants
     const bestVideo = getBestVideo(variantsObj)
-    res.json({ "Link al vídeo": bestVideo.url })
+    res.redirect(bestVideo.url)
 
   } catch (error) {
     console.error(error)

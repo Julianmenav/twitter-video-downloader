@@ -10,7 +10,7 @@ Pruebalo: [Pulse aqui](https://video-downloader-app-production.up.railway.app/)
 - [X] Static HTML form en el cual introducir Link al tweet, y se encargue de extraer el ID del video para hacer la request al server. 
 - [X] Crear una app sencilla con un HTML en el que introducir dicho link.
 - [X] Subirlo a railway o github pages.
-- [ ] Respuesta con Link clickable / Boton redirect.
+- [X] Respuesta con Link clickable / Boton redirect.
 - [X] Mejorar algoritmo de obtención del tweet ID
 
 
