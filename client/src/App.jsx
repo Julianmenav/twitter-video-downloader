@@ -27,10 +27,15 @@ function App() {
         setLoading(true);
         const response = await fetch(`${apiURL}/api/${tweetId}`, { signal: abortController.signal })
         const data = await response.json();
-        setData(data);
-    
+
+        if(response.ok) {
+          setData(data);
+          setError(false);
+        } else {
+          setError(true);
+        }
+
       } catch (error) {
-        setError(true);
         console.error(error);
       }
 

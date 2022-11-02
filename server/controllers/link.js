@@ -9,8 +9,8 @@ const getLink = async (req, res) => {
     tweetResponse = await getTweet(id)
   
     //response = undefined
-    if (!tweetResponse.extended_entities.media) {
-      return res.status(400).json({ "Error": `La URL no es de un tweet válido, o no contiene un vídeo` })
+    if (!tweetResponse) {
+      return res.status(400).json({ "Error": `La URL no es de un tweet válido` })
     }
     //Response = Error
     if (tweetResponse == "ERR_BAD_REQUEST") {
@@ -21,7 +21,7 @@ const getLink = async (req, res) => {
 
   } catch (error) {
     console.error(error)
-    res.status(400).json({ "Error": "Lo siento, algo ha ido mal." })
+    return res.status(400).json({ "Error": "El tweet no contiene un video." })
   }
 }
 
