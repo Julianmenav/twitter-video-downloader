@@ -1,53 +1,14 @@
-import { useEffect, useState } from "react";
-import parseURL from './utils/parseURL'
-import "./App.css";
+import { useState } from "react";
+import { useGetVideos } from "./hooks/useGetVideos";
 import DataContainer from "./components/DataContainer";
+import "./App.css";
 
-const apiURL = import.meta.env.VITE_API_URL;
+
 
 
 function App() {
   const [inputValue, setInputValue] = useState("");
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-
-
-  useEffect(() => {
-    if(inputValue === "") return;
-    const abortController = new AbortController();
-
-    const fetchData = async () => {
-      try {
-        const tweetId = parseURL(inputValue);
-        
-        const isNum = (str) => /^[0-9]*$/.test(str)
-        if (!isNum(tweetId)) return;
-        
-        setLoading(true);
-        const response = await fetch(`${apiURL}/api/${tweetId}`, { signal: abortController.signal })
-        const data = await response.json();
-
-        if(response.ok) {
-          setData(data);
-          setError(false);
-        } else {
-          setError(true);
-        }
-
-      } catch (error) {
-        console.error(error);
-      }
-
-      setLoading(false);
-    }
-
-    fetchData();
-
-    return () => {
-      abortController.abort();
-    }
-  }, [inputValue]);
+  const {data, loading, error} = useGetVideos({url: inputValue});
   
 
   return (
@@ -57,7 +18,7 @@ function App() {
       </h1>
       <form>
         <input
-          className="border-2"
+          className="border-2 w-96 h-10"
           onChange={(e) => setInputValue(e.target.value)}
           type="text"
         />

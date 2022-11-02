@@ -12,5 +12,9 @@ export default function (str) {
 
   const tweetId = lastStr.split("?")[0]
 
-  return tweetId;
+  const isNum = (str) => /^[0-9]*$/.test(str)
+  
+
+
+  return {id: tweetId, isValid: (isNum(tweetId))};
 }
