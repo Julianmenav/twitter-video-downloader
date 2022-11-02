@@ -1,23 +1,12 @@
-const { getBestVideo } = require('../utils/functions')
+
 const { getTweet } = require("../API/twitter-api-functions")
 
 const getLink = async (req, res) => {
   try {
-    const { url } = req.body
-    //Get tweet ID
-    const splittedUrl = url.split("/")
-    let lastStr
-  
-    if (splittedUrl[splittedUrl.length - 1] == "") {
-      lastStr = splittedUrl[splittedUrl.length - 2]
-    } else {
-      lastStr = splittedUrl[splittedUrl.length - 1]
-    }
-
-    const tweetId = lastStr.split("?")[0]
+    const { id } = req.params
   
     //API CALL
-    tweetResponse = await getTweet(tweetId)
+    tweetResponse = await getTweet(id)
   
     //response = undefined
     if (!tweetResponse) {
@@ -28,8 +17,7 @@ const getLink = async (req, res) => {
       return res.status(400).json({ "Error": "Twitter API Error, por favor avise a Julian" })
     }
     const variantsObj = tweetResponse.extended_entities.media[0].video_info.variants
-    const bestVideo = getBestVideo(variantsObj)
-    res.redirect(bestVideo.url)
+    res.json(variantsObj)
 
   } catch (error) {
     console.error(error)
