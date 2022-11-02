@@ -12,13 +12,14 @@ function App() {
   
 
   return (
-    <div className="flex flex-col items-center gap-4 mt-10">
-      <h1 className="text-3xl font-bold text-center">
+    <div className="flex flex-col items-center h-screen justify-start gap-14 bg-neutral-800">
+      <h1 className="text-5xl font-bold text-center mt-24 text-neutral-200">
         Twitter Video Downloader
       </h1>
       <form>
         <input
-          className="border-2 w-96 h-10"
+          placeholder="Coloca el enlace al tweet"
+          className="border-2 w-96 h-10 pl-2 bg-neutral-500 text-neutral-50 placeholder-neutral-50"
           onChange={(e) => setInputValue(e.target.value)}
           type="text"
         />
