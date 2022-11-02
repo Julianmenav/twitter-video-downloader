@@ -1,23 +1,23 @@
 require('dotenv').config()
 const express = require('express')
-const favicon = require('serve-favicon')
+const cors = require('cors')
+
 const { getLink } = require('./controllers/link')
 
 const app = express();
 
 const port = process.env.PORT || 3000
 
+app.use(cors())
 app.use(express.urlencoded({ extended: false }))
-app.use('/public', express.static(__dirname + `/public`));
-app.use(favicon(__dirname + '/public/favicon.ico'))
-
+app.use(express.static('public'))
 
 app.get('/', function (req, res) {
-  res.sendFile(process.cwd() + '/views/index.html');
+  res.sendFile(process.cwd() + '/index.html');
 });
 
 
-app.post("/api/url", getLink)
+app.get("/api/:id", getLink)
 
 //Not Found Middleware
 
