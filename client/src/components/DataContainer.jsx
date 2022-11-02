@@ -13,15 +13,18 @@ const DataContainer = ({ loading, error, data }) => {
       ) : error ? (
         <h3>No se encuentra el vídeo</h3>
       ) : data ? (
+        <div>
+        <img src={data["thumbNail"]} className="w-32"/>
         <ul>
           {data["variantsObj"].map((el, idx) => {
             return (
               <li className="m-3 p-2" key={idx}>
-                <a className="border-2 p-2 rounded-md" href={el.url} target="_blank" rel="noreferrer">Opción {idx + 1}</a>
+                <a className="border-2 p-2 rounded-md" href={el.url} target="_blank" rel="noreferrer">Opción {idx + 1}</a><span> Size: {el.size}</span>
               </li>
             );
           })}
         </ul>
+        </div>
       ) : null}
     </div>
   );
