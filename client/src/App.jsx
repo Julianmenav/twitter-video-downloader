@@ -8,8 +8,8 @@ function App() {
   const { data, loading, error } = useGetVideos({ url: inputValue });
 
   return (
-    <div className="flex flex-col items-center min-h-screen justify-start gap-10 md:gap-14 bg-neutral-800">
-      <h1 className="text-5xl font-bold text-center mt-12 md:mt-24 text-neutral-200">
+    <div className="grid grid-cols-1 content-start min-h-screen justify-start gap-10 md:gap-14 bg-neutral-800">
+      <h1 className="text-5xl font-bold text-center mt-5 md:mt-24 text-neutral-200">
         Twitter Video Downloader
       </h1>
       <form className="w-full text-center">
