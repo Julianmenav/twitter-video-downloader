@@ -2,7 +2,7 @@ import React from "react";
 
 const DataContainer = ({ loading, error, data }) => {
   return (
-    <div className="text-neutral-50">
+    <>
       {loading ? (
           <div >
             <svg className="animate-spin -ml-1 mr-3 h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -11,21 +11,21 @@ const DataContainer = ({ loading, error, data }) => {
             </svg>
           </div>
       ) : error ? (
-        <h3>No se encuentra el vídeo</h3>
+        <h3 className="text-neutral-50">No se encuentra el vídeo</h3>
       ) : data ? (
 
-        <div className="flex flex-row">
+        <div className="flex flex-row items-center justify-center w-full flex-wrap text-neutral-50">
           {/* <img src={data["thumbNail"]} className="max-w-sm max-h-64 shadow-md border-2 border-gray-200"/> */}
-          <video className="max-w-sm max-h-64 shadow-md border-2 border-gray-200" src={data["variantsObj"][0]["url"]} autoPlay muted loop/>
-          <div className="bg-neutral-600 p-2 rounded-md w-full">
-            <ul className="p10 mt-5 ">
+          <video className="max-w-xs max-h-44 md:max-w-sm md:max-h-72 shadow-md border-2 border-gray-200" src={data["variantsObj"][0]["url"]} autoPlay muted loop/>
+          <div className="bg-neutral-600 p-4 m-2 rounded-md w-fit">
+            <ul className="p10 flex flex-col md:gap-4">
               {data["variantsObj"].map((el, idx) => {
                 return (
-                  <li className="m-3 p-2 pl-0" key={idx}>
-                    <button className="border-2 p-2 rounded-md text-black bg-neutral-50 hover:bg-neutral-200 active:translate-y-0.5">
+                  <li className="flex flex-row justify-between items-center" key={idx}>
+                    <button className="min-w-fit text-xs md:text-base md:p-2 border-2 p-1 rounded-sm md:rounded-md bg-sky-500 hover:bg-neutral-200 hover:text-neutral-800 active:translate-y-0.5 font-thin">
                       <a  href={el.url} target="_blank" rel="noreferrer">Opción {idx + 1}</a>
                     </button>
-                    <span className="text-neutral-50 p-4 text-sm"> Resolución: {el.size}</span>
+                    <p className=" p-4 text-sm "> Resolución: {el.size}</p>
                   </li>
                 );
               })}
@@ -34,7 +34,7 @@ const DataContainer = ({ loading, error, data }) => {
 
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 
