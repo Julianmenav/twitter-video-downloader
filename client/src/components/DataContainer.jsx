@@ -11,12 +11,12 @@ const DataContainer = ({ loading, error, data }) => {
             </svg>
           </div>
       ) : error ? (
-        <h3 className="text-neutral-50">No se encuentra el vídeo</h3>
+        <h3 className="text-neutral-50 text-center">No se encuentra el vídeo</h3>
       ) : data ? (
 
         <div className="flex flex-row items-center justify-center w-full flex-wrap text-neutral-50">
           {/* <img src={data["thumbNail"]} className="max-w-sm max-h-64 shadow-md border-2 border-gray-200"/> */}
-          <video className="max-w-xs max-h-44 md:max-w-sm md:max-h-72 shadow-md border-2 border-gray-200" src={data["variantsObj"][0]["url"]} autoPlay muted loop/>
+          <video className="max-w-xs max-h-44 md:max-w-sm md:max-h-72 shadow-md border-2 border-gray-200 rounded-sm" src={data["variantsObj"][0]["url"]} autoPlay muted loop/>
           <div className="bg-neutral-600 p-4 m-2 rounded-md w-fit">
             <ul className="p10 flex flex-col md:gap-4">
               {data["variantsObj"].map((el, idx) => {

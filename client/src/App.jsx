@@ -15,7 +15,7 @@ function App() {
       <form className="w-full text-center">
         <input
           placeholder="Coloca el enlace al tweet"
-          className="border-2 p-1 text-center w-11/12  text-xs sm:max-w-lg sm:text-sm md:max-w-2xl md:text-base  pl-2 rounded-sm bg-neutral-500 text-neutral-50 placeholder-neutral-50"
+          className="p-0.5 text-center w-11/12  text-xs sm:max-w-lg sm:text-sm md:max-w-2xl md:text-base  pl-2 rounded-md bg-neutral-500 focus:bg-neutral-900 text-neutral-50 placeholder-neutral-50  transition-colors duration-100"
           onChange={(e) => setInputValue(e.target.value)}
           type="text"
         />
