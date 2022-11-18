@@ -17,13 +17,13 @@ const DataContainer = ({ loading, error, data }) => {
         <div className="flex flex-row items-center justify-center w-full flex-wrap text-neutral-50">
           {/* <img src={data["thumbNail"]} className="max-w-sm max-h-64 shadow-md border-2 border-gray-200"/> */}
           <video className="max-w-xs max-h-44 md:max-w-sm md:max-h-72 shadow-md border-2 border-gray-200 rounded-sm" src={data["variantsObj"][0]["url"]} autoPlay muted loop/>
-          <div className="bg-neutral-600 p-4 m-2 rounded-md w-fit">
+          <div className="bg-[#2F3336] p-4 m-2 rounded-md w-fit">
             <ul className="p10 flex flex-col md:gap-4">
               {data["variantsObj"].map((el, idx) => {
                 return (
                   <li className="flex flex-row justify-between items-center" key={idx}>
-                    <button className="min-w-fit text-xs font-semibold md:text-base md:p-2 border-2 p-1 rounded-sm md:rounded-md bg-sky-500 hover:bg-neutral-200 hover:text-neutral-800 active:translate-y-0.5">
-                      <a  href={el.url} target="_blank" rel="noreferrer">Opción {idx + 1}</a>
+                    <button className="min-w-fit text-xs font-semibold md:text-base md:p-2 md:pt-1.5 border-2 p-1 pt-0.5 rounded-sm md:rounded-md bg-[#1DA1F2]  hover:text-[#0e5079] active:translate-y-0.5">
+                      <a href={el.url} target="_blank" rel="noreferrer">Opción {idx + 1}</a>
                     </button>
                     <p className=" p-4 text-sm "> Resolución: {el.size}</p>
                   </li>
