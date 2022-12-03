@@ -22,14 +22,13 @@ export const useGetVideos = ({ url }) => {
         const tweet = parseURL(url);
         if (!tweet.isValid) return;
 
-        dispatch({ type: "start" });
-
         const tweetId = tweet.id;
         const response = await fetch(`${apiURL}/api/${tweetId}`, {
+          //If abortController is canceled because input changes, fetch is never done.
           signal: abortController.signal,
         });
         const data = await response.json();
-
+        
         if (response.ok) {
           dispatch({ type: "success", data: data });
         } else {
@@ -40,10 +39,14 @@ export const useGetVideos = ({ url }) => {
         dispatch({ type: "fail" });
       }
     };
-
-    fetchData();
+    
+    //Loading svg
+    dispatch({ type: "start" });
+    //Wait 0.5s to call API.
+    setTimeout(fetchData, 500);
 
     return () => {
+      //In every input change, cancel all pending api calls.
       abortController.abort();
     };
   }, [url]);
