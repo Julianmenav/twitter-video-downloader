@@ -12,8 +12,8 @@ function App() {
     <div className="grid grid-cols-1 content-start min-h-screen justify-start gap-10 md:gap-14 bg-[#060606]">
       <h1 className="text-5xl font-bold text-center mt-24 md:mt-40 text-white">
         <span className="text-[#1DA1F2]">Twitter</span> <span>Video Downloader</span>
-        <span class="inline-block ml-4 translate-y-1/4">
-          <img src={twitterIcon} alt="Twitter Logo" class="w-14 h-14"/>
+        <span className="inline-block ml-4 translate-y-1/4">
+          <img src={twitterIcon} alt="Twitter Logo" className="w-14 h-14"/>
         </span>
       </h1>
       <form className="w-full text-center">
