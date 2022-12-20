@@ -22,9 +22,9 @@ const DataContainer = ({ loading, error, data }) => {
               {data["variantsObj"].map((el, idx) => {
                 return (
                   <li className="flex flex-row justify-between items-center" key={idx}>
-                    <button className="min-w-fit text-xs font-semibold md:text-base md:p-2 md:pt-1.5 border-2 p-1 pt-0.5 rounded-sm md:rounded-md bg-[#1DA1F2]  hover:text-[#0e5079] active:translate-y-0.5">
-                      <a href={el.url} target="_blank" rel="noreferrer">Opción {idx + 1}</a>
-                    </button>
+                    <a href={el.url} target="_blank" rel="noreferrer" className="min-w-fit text-xs font-semibold md:text-base md:p-2 md:pt-1.5 border-22 p-1 pt-0.5 rounded-sm md:rounded-md bg-[#1DA1F2]  hover:text-[#0e5079] active:translate-y-0.5">  
+                      Opción {idx + 1}
+                    </a>
                     <p className=" p-4 text-sm "> Resolución: {el.size}</p>
                   </li>
                 );
